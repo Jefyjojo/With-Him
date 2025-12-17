@@ -25,6 +25,52 @@ export interface MoodBasedScriptures {
 
 
 /**
+ * Collection ID: prayerjournal
+ * Interface for PrayerJournal
+ */
+export interface PrayerJournal {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  entryTitle?: string;
+  /** @wixFieldType text */
+  prayerContent?: string;
+  /** @wixFieldType datetime */
+  entryDate?: Date | string;
+  /** @wixFieldType text */
+  moodTag?: string;
+  /** @wixFieldType boolean */
+  isPrivate?: boolean;
+  /** @wixFieldType multi_reference */
+  userprofiles?: UserProfiles[];
+}
+
+
+/**
+ * Collection ID: userprofiles
+ * Interface for UserProfiles
+ */
+export interface UserProfiles {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  externalUserId?: string;
+  /** @wixFieldType multi_reference */
+  prayerjournalentries?: PrayerJournal[];
+  /** @wixFieldType text */
+  userName?: string;
+  /** @wixFieldType date */
+  dateOfBirth?: Date | string;
+  /** @wixFieldType text */
+  gender?: string;
+  /** @wixFieldType image */
+  profilePicture?: string;
+}
+
+
+/**
  * Collection ID: userreflections
  * Interface for UserReflections
  */
